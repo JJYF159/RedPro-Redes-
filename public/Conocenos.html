@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conócenos - RedPro Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="body-conocenos">
+
+    <header>
+        <div class="barra_Navegacion">
+            <nav class="navbar">
+                <!-- Logo -->
+                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="logo" onclick="location.href='index.html'">
+
+                <!-- Enlaces -->
+                <ul class="navbar_enlaces">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="Cursos.html">CURSOS</a></li>
+                    <li><a href="Staff.html">STAFF</a></li>
+                    <li><a class= "active" href="Conocenos.html">CONOCENOS</a></li>
+                </ul>
+                <div class="carrito-container">
+                    <i class="bi bi-cart" onclick="location.href='Pago.html'"></i>
+                    <span id="carrito-contador">0</span>
+                </div>
+                <!-- Barra de búsqueda -->
+                <div class="barra-busqueda position-relative">
+                    <input type="text" id="input-busqueda" placeholder="Buscar...">
+                    <button><i class="fa fa-search"></i></button>
+                <div id="resultados-busqueda" class="resultados-dropdown"></div>
+                </div>
+
+                <!-- Botones de sesión -->
+                <div class="Botones">
+                    <button id="btn-registrarse" onclick="location.href='Registrarse.html'">REGISTRARSE</button>
+                    <button id="btn-iniciar" onclick="location.href='IniciarSesion.html'">INICIAR SESIÓN</button>
+                    <button id="btn-logout" style="display: none;" onclick="cerrarSesion()">CERRAR SESIÓN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+       <!-- Sección de presentación renovada de la academia -->
+        <section class="presentacionRedpro">
+            <div class="presentacionRedpro-container">
+                <h2 class="presentacionRedpro-titulo">Conectando el futuro con conocimiento</h2>
+
+                <div class="presentacionRedpro-content">
+                    <div class="presentacionRedpro-item">
+                        <i class="fas fa-network-wired presentacionRedpro-icono"></i>
+                        <h3>Expertos en redes</h3>
+                        <p>Capacitamos a profesionales en arquitectura de redes, configuración y protocolos de comunicación modernos.</p>
+                    </div>
+
+                    <div class="presentacionRedpro-item">
+                        <i class="fas fa-shield-alt presentacionRedpro-icono"></i>
+                        <h3>Especialistas en Ciberseguridad</h3>
+                        <p>Formamos defensores digitales capaces de proteger infraestructuras críticas y datos sensibles ante amenazas emergentes.</p>
+                    </div>
+
+                    <div class="presentacionRedpro-item">
+                        <i class="fas fa-laptop-code presentacionRedpro-icono"></i>
+                        <h3>Educación flexible</h3>
+                        <p>Nuestra plataforma permite que aprendas a tu ritmo, desde cualquier parte del mundo, con recursos actualizados.</p>
+                    </div>
+                </div>
+
+                <div class="presentacionRedpro-cta">
+                    <p>Únete a nuestra comunidad de aprendizaje y transforma tu futuro en tecnología.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Misión y Visión -->
+        <section class="mision-vision">
+            <div class="contenido-seccion">
+                <h2>Misión</h2>
+                <p>Brindar educación especializada en redes y tecnologías de la información, enfocada en la práctica y adaptada al mundo laboral actual.</p>
+            </div>
+            <div class="contenido-seccion">
+                <h2>Visión</h2>
+                <p>Ser líderes en formación online de profesionales en el área de redes, reconocidos por nuestra calidad, innovación y compromiso.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Valores -->
+        <section class="valores">
+            <h2>Nuestros Valores</h2>
+            <ul>
+                <li>✔ Compromiso con el estudiante</li>
+                <li>✔ Excelencia académica</li>
+                <li>✔ Actualización constante</li>
+                <li>✔ Inclusión y accesibilidad</li>
+            </ul>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonios-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="testimonial-item">
+                        <p>"Gracias a RedPro conseguí mi primera certificación en Cisco. Los cursos son muy claros y actualizados."</p>
+                        <strong>— Luis G., Perú</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Excelente contenido y profesorado. El curso de ciberseguridad superó mis expectativas."</p>
+                        <strong>— Camila T., Colombia</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Plataforma muy fácil de usar. Estudio desde mi celular sin problemas."</p>
+                        <strong>— Javier M., México</strong>
+                    </div>
+                    <!-- Duplicados para scroll infinito -->
+                    <div class="testimonial-item">
+                        <p>"Gracias a RedPro conseguí mi primera certificación en Cisco. Los cursos son muy claros y actualizados."</p>
+                        <strong>— Luis G., Perú</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Excelente contenido y profesorado. El curso de ciberseguridad superó mis expectativas."</p>
+                        <strong>— Camila T., Colombia</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Plataforma muy fácil de usar. Estudio desde mi celular sin problemas."</p>
+                        <strong>— Javier M., México</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-final">
+        <h3>¿Listo para comenzar tu camino en el mundo de las redes?</h3>
+            <p>Únete a nosotros y forma parte de una comunidad tecnológica en crecimiento.</p>
+        <button class="presentacionRedpro-btn"  onclick="location.href='Cursos.html'">Ver nuestros cursos</button>
+    </section>
+</main>
+</body>
+<script src="js/main.js"></script>
+<script src="js/buscador.js"></script>
+<script src="js/carrito.js"></script>
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="footer-logo-img" onclick="location.href='index.html'">
+             </div>
+        <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="Cursos.html">Cursos</a>
+            <a href="Staff.html">Staff</a>
+            <a href="Conocenos.html">Conócenos</a>
+        </div>
+        <div class="footer-buttons">
+            <button onclick="location.href='registro.html'">Registrarse</button>
+            <button onclick="location.href='login.html'">Iniciar sesión</button>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 RedPro Academy. Todos los derechos reservados.</p>
+            <p>© JJYF27.</p>
+        </div>
+    </footer>
+</html>

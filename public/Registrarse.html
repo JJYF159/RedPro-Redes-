@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - RedPro Academy</title>
+    <link rel="stylesheet" href="css/styleR.css">
+</head>
+<body>
+  <div class="form-container">
+    <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="registrologo" />
+    <h2>REGÍSTRATE</h2>
+    <form action="/registro" method="POST">
+      <input type="text" name="nombres" placeholder="Nombres" required />
+      <input type="text" name="apellidos" placeholder="Apellidos" required />
+      <input type="email" name="email" placeholder="Correo Electronico" required />
+      <input type="tel" name="celular" placeholder="Numero de Celular" required pattern="[0-9]{9,9}" maxlength="9" />
+      <input type="password" name="password" placeholder="Contraseña" required />
+      <input type="password" name="confirmar" placeholder="Confirmar Contraseña" required />
+      
+      <div class="checkboxes">
+        <label><input type="checkbox" name="terminos" required /> Aceptar Términos y Condiciones</label>
+        <p>
+        <label><input type="checkbox" name="ofertas" /> Aceptar recibir ofertas mediante correo electronico</label>
+        </p>
+      </div>
+
+      <button type="submit">REGISTRARSE</button>
+    </form>
+  </div>
+</body>
+</html>

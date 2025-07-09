@@ -1,0 +1,57 @@
+/* ========================== */
+/* REGISTRARSE         */
+/* ========================== */
+
+body {
+  font-family: sans-serif;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  width: 400px;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.registrologo {
+  width: 15rem;
+  margin-bottom: 3rem;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.checkboxes {
+  text-align: left;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #2cd3e1;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #25b9c4;
+}

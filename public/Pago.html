@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pasarela de Pago - RedPro Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"">
+</head>
+<body>
+
+<div class="container carrito-contenedor">
+  <h2 class="mb-4">🛒 Resumen de tu compra</h2>
+
+    <div id="lista-carrito" class="mb-4"></div>
+    <div class="text-end mt-3">
+        <button id="btn-limpiar-carrito" class="btn btn-outline-danger">🗑️ Vaciar carrito</button>
+    </div>
+
+  <hr>
+
+  <h3>💳 Método de Pago</h3>
+  <div class="mb-3 metodo-pago">
+    <label class="form-check-label">
+      <input type="radio" name="metodo" value="tarjeta" class="form-check-input metodo-radio" checked> Tarjeta (Visa / Mastercard)
+    </label>
+    <label class="form-check-label ms-3">
+      <input type="radio" name="metodo" value="yape" class="form-check-input metodo-radio"> Yape
+    </label>
+  </div>
+
+  <form id="form-pago" class="row g-3">
+    <!-- Campos comunes -->
+    <div class="col-md-6">
+      <label class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="nombre" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Dirección</label>
+      <input type="text" class="form-control" id="direccion" required>
+    </div>
+
+    <!-- Campos para Tarjeta -->
+    <div class="tarjeta-campos" id="pago-tarjeta">
+      <div class="col-md-6">
+        <label class="form-label">Número de tarjeta</label>
+        <input type="text" class="form-control" id="tarjeta" maxlength="16">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Expiración</label>
+        <input type="month" class="form-control" id="fecha">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">CVV</label>
+        <input type="text" class="form-control" id="cvv" maxlength="4">
+      </div>
+    </div>
+
+    <!-- Campos para Yape -->
+    <div class="yape-campos hidden" id="pago-yape">
+      <div class="col-md-6">
+        <label class="form-label">Número de teléfono (Yape)</label>
+        <input type="tel" class="form-control" id="telefono" maxlength="9" placeholder="Ej: 987654321">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Código de confirmación</label>
+        <input type="text" class="form-control" id="codigo-yape" maxlength="6">
+      </div>
+    </div>
+
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-pago px-4">PAGAR AHORA</button>
+    </div>
+  </form>
+
+  <div id="mensaje-exito" class="mensaje-exito d-none">
+    ✅ ¡Gracias por tu compra! En breve recibirás un correo con los detalles.
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

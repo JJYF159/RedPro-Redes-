@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Iconos para la lupa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Incluye el CSS de Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <div class="barra_Navegacion">
+            <nav class="navbar">
+                <!-- Logo -->
+                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="logo" onclick="location.href='index.html'">
+
+                <!-- Enlaces -->
+                <ul class="navbar_enlaces">
+                    <li><a class= "active" href="index.html">INICIO</a></li>
+                    <li><a href="Cursos.html">CURSOS</a></li>
+                    <li><a href="Staff.html">STAFF</a></li>
+                    <li><a href="Conocenos.html">CONOCENOS</a></li>
+                </ul>
+                <div class="carrito-container">
+                    <i class="bi bi-cart" onclick="location.href='Pago.html'"></i>
+                    <span id="carrito-contador">0</span>
+                </div>
+                <!-- Barra de búsqueda -->
+                <div class="barra-busqueda position-relative">
+                    <input type="text" id="input-busqueda" placeholder="Buscar...">
+                    <button><i class="fa fa-search"></i></button>
+                <div id="resultados-busqueda" class="resultados-dropdown"></div>
+                </div>
+
+               <!-- Botones de sesión -->
+                <div class="Botones">
+                    <button id="btn-registrarse" onclick="location.href='Registrarse.html'">REGISTRARSE</button>
+                    <button id="btn-iniciar" onclick="location.href='IniciarSesion.html'">INICIAR SESIÓN</button>
+                    <button id="btn-logout" style="display: none;" onclick="cerrarSesion()">CERRAR SESIÓN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="bienvenida">
+            <span class="punto-azul"></span>
+            <strong>BIENVENIDO ... ¡EXPLORA TUS CONOCIMIENTOS!</strong>
+        </div>
+
+        <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Imagenes/slider1.jpg"></div>
+            <div class="swiper-slide"><img src="Imagenes/slider2.jpg"></div>
+            <div class="swiper-slide"><img src="Imagenes/slider3.jpg"></div>
+            <div class="swiper-slide"><img src="Imagenes/slider4.jpg"></div>
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        
+
+        <div class="contenido">
+        <h2 class="Cursos-Text">EXPLORA NUESTROS CURSOS DE REDES</h2>
+        <section class="cursos-grid" id="cursos-container">
+            <!-- Aquí se insertarán los cursos dinámicamente -->
+        </section>
+        </div>
+
+        <div class="contenedor-boton">
+            <button class="Botones_cursos" onclick="location.href = 'Cursos.html'">VER MÁS CURSOS</button>
+        </div>
+        <div class="quienes-somos">
+            <div class="quienes-somos-imagen">
+                <img src="Imagenes/REDPRO.png" alt="¿Quiénes somos?">
+            </div>
+            <div class="quienes-somos-texto">
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    En <strong>RedPro Academy</strong> somos una comunidad dedicada a brindar educación de calidad en redes, ciberseguridad y tecnologías de la información. Nuestra misión es formar profesionales altamente capacitados a través de cursos prácticos, accesibles y actualizados.
+                </p>
+                <p>
+                    Contamos con instructores certificados, experiencia en el campo y una plataforma intuitiva que permite aprender desde cualquier lugar.
+                </p>
+                <div class="Contenedor-boton">
+                        <button class="botones_info" data-id="información" onclick="location.href='Conocenos.html'">Más información</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="js/swipe.js"></script>
+<script src="js/main.js"></script>
+<script src="js/buscador.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/listarcursos.js"></script>
+<script src="js/slider.js"></script>
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="footer-logo-img" onclick="location.href='index.html'">
+             </div>
+        <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="Cursos.html">Cursos</a>
+            <a href="Staff.html">Staff</a>
+            <a href="Conocenos.html">Conócenos</a>
+        </div>
+        <div class="footer-buttons">
+            <button onclick="location.href='registro.html'">Registrarse</button>
+            <button onclick="location.href='login.html'">Iniciar sesión</button>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 RedPro Academy. Todos los derechos reservados.</p>
+            <p>© JJYF27.</p>
+        </div>
+    </footer>
+</html>

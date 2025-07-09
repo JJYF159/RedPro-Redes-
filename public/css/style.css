@@ -1,0 +1,762 @@
+/* ========================== */
+/* Barra de navegación       */
+/* ========================== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Logo de la navbar */
+.logo {
+    height: 60px;
+}
+.logo:hover {
+    cursor: pointer;
+}
+
+/* Enlaces de navegación horizontal */
+.navbar_enlaces {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+.navbar_enlaces li {
+    margin-right: 3.5rem;
+}
+
+.navbar_enlaces a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.navbar_enlaces a:hover,
+.navbar_enlaces .active {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+/* ========================== */
+/* Barra de búsqueda         */
+/* ========================== */
+.barra-busqueda {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    position: relative; /* ← esto es esencial */
+}
+
+.barra-busqueda input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 2rem 0 0 2rem;
+    outline: none;
+    font-size: 1rem;
+}
+
+.barra-busqueda button {
+    background-color: white;
+    border: 1px solid #000;
+    border-left: none;
+    border-radius: 0 2rem 2rem 0;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.resultados-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 10;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.resultado-item {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.resultado-item:last-child {
+  border-bottom: none;
+}
+
+.resultado-item:hover {
+  background-color: #f5f5f5;
+}
+
+#mensaje-no-resultados {
+  padding: 6px 10px;
+  color: gray;
+  font-style: italic;
+}
+
+
+/* ========================== */
+/* Botones de sesión         */
+/* ========================== */
+.Botones {
+    display: flex;
+    gap: 1rem;
+}
+
+.Botones button {
+    background-color: #25bfbf;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.Botones button:hover {
+    background-color: #25bfbf;
+}
+
+/* ========================== */
+/* Slider principal          */
+/* ========================== */
+.bienvenida {
+  margin: 20px auto;
+  padding: 10px 20px;
+  width: max-content;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+}
+
+.punto-azul {
+  width: 15px;
+  height: 15px;
+  background-color: #3498db;
+  border-radius: 50%;
+}
+
+/* Contenedor del slider */
+.swiper {
+    width: 100%;
+    max-width: 1400px;
+    border-radius: 3rem;
+    margin-top: 2rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.swiper-slide {
+    width: 100% !important;      /* Que cada slide ocupe el 100% del contenedor */
+    box-sizing: border-box;
+}
+
+.swiper-slide img {
+    
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+/* ========================== */
+/* Grid de cursos             */
+/* ========================== */
+.Cursos-Text{
+
+    margin-left: 9.5rem;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+
+}
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.curso-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+.curso-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.curso-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  height: 2.4em;
+  overflow: hidden;
+}
+
+.curso-card p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.rating {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.rating span {
+  color: #555;
+  font-weight: normal;
+}
+
+.precio {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.precio del {
+  color: gray;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+.contenedor-boton {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+.Botones_cursos {
+    background-color: #00B8C4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 16px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Botones_cursos:hover {
+    background-color: #009eaa;
+}
+/* ========================== */
+/* Sección de Quienes Somos    */
+/* ========================== */
+.quienes-somos {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quienes-somos-imagen {
+  max-width: 320px;
+  width: 100%;
+  justify-self: center;
+}
+
+.quienes-somos-imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.quienes-somos-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1rem;
+}
+
+.quienes-somos-texto h2 {
+  color: #00B8C4;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.quienes-somos-texto p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.botones_info{
+    background-color: #00B8C4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 16px;
+    margin-left: 15rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botones_info:hover {
+    background-color: #009eaa;
+}
+
+/* ========================== */
+/* Footer                     */
+/* ========================== */
+.footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px 10px;
+    border-top: 1px solid #ddd;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-logo-img {
+    height: 60px;
+}
+
+.footer-logo-img:hover {
+    cursor: pointer;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00B8C4;
+}
+
+.footer-buttons button {
+    background-color: #00B8C4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-buttons button:hover {
+    background-color: #009eaa;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+.carrito-container {
+    position: relative;
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+#carrito-contador {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+/* ========================== */
+/* Staff */
+/* ========================== */
+.text-center{
+
+    margin-bottom: 5rem;
+
+}
+.Staff-texto{
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    color:#009eaa;
+    margin-bottom: 9.5rem !important;
+}
+/*=========================== */
+/* Conocenos       */
+/* ========================== */
+/* ======== BODY GENERAL ======== */
+.body-conocenos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* ======== PRESENTACIÓN ======== */
+.presentacionRedpro {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.presentacionRedpro-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.presentacionRedpro-titulo {
+    font-size: 2.5rem;
+    color: #003b5c;
+    margin-bottom: 40px;
+}
+
+.presentacionRedpro-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.presentacionRedpro-item {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.presentacionRedpro-item:hover {
+    transform: translateY(-10px);
+}
+
+.presentacionRedpro-icono {
+    font-size: 3rem;
+    color: #00B8C4;
+    margin-bottom: 15px;
+}
+
+.presentacionRedpro-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.presentacionRedpro-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.presentacionRedpro-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.presentacionRedpro-btn {
+    background-color: #00B8C4;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.presentacionRedpro-btn:hover {
+    background-color: #0099a4;
+}
+
+/* ======== MISIÓN Y VISIÓN ======== */
+.mision-vision {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.contenido-seccion {
+    max-width: 500px;
+}
+
+.contenido-seccion h2 {
+    font-size: 2rem;
+    color: #003b5c;
+    margin-bottom: 15px;
+}
+
+.contenido-seccion p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ======== VALORES ======== */
+.valores {
+    background-color: #f1f1f1;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.valores h2 {
+    font-size: 2rem;
+    color: #003b5c;
+    margin-bottom: 25px;
+}
+
+.valores ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.valores ul li {
+    margin-bottom: 10px;
+}
+
+/* ======== TESTIMONIOS ======== */
+.testimonios-carousel {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-container {
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeft 20s linear infinite;
+}
+.testimonial-item {
+    min-width: 300px;
+    max-width: 300px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    margin: 0 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    flex-shrink: 0;
+}
+.testimonial-item strong {
+    display: block;
+    margin-top: 15px;
+    color: #003b5c;
+}
+.testimonial-item:hover {
+    transform: translateY(-8px);
+    transition: transform 0.3s ease;
+}
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+/* ======== CTA FINAL ======== */
+.cta-final{
+
+    background-color: #f1f1f1;
+    padding: 60px 20px;
+    text-align: center;
+}
+/*======== PAGO ======== */
+.body-pago {
+    background-color: #f8f9fa;
+}
+
+.carrito-contenedor {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-pago {
+    background-color: #00B8C4;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-pago:hover {
+    background-color: #009aa7;
+}
+
+.metodo-radio {
+    margin-right: 10px;
+}
+
+.mensaje-exito {
+    background-color: #d1e7dd;
+    padding: 15px;
+    border-radius: 5px;
+    color: #0f5132;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+/* ========================== */
+/* Estilos para la página de Login */
+/* ========================== */
+/* Fondo oscuro para la página de login */
+body.login-page {
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Contenedor del login centrado y con fondo */
+.login-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+  max-width: 370px;
+  width: 100%;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+
+}
+/* Subtítulo */
+.login-container h3 {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  
+}
+/* Inputs */
+.ElementosLogin {
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  border-radius: 2rem;
+  border: none;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #18181e;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.ElementosLogin:focus {
+  box-shadow: 0 0 0 2px #1fffc6;
+}
+/* Botón ingresar */
+.logo_Login {
+    height: 60px;
+    margin-left: 7rem;
+}
+.Ingresar {
+  width: 100%;
+  background: #1fffc6;
+  color: #18181e;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.Ingresar:hover {
+  background: #17cfa1;
+  color: #fff;
+}
+/* Links */
+.login-container a {
+  color: #1fffc6;
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+.login-container a:hover {
+  text-decoration: underline;
+}
+/* Texto de recuperación y registro */
+.Recuperacion, .login-container p {
+  color: #bdbdbd;
+  font-size: 0.98rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
