@@ -61,9 +61,9 @@
         <!-- Aquí se insertarán los cursos desde JS -->
         </section>
         <section class="FormDudas">
-            <h2>¿Tienes Dudas?</h2>
-            <p>Si tienes alguna pregunta o necesitas más información sobre nuestros cursos, no dudes en contactarnos.</p>
-            <form id = contact-form>
+            <h2 class="form_title">¿Tienes Dudas?</h2>
+            <p class="form_p">Si tienes alguna pregunta o necesitas más información sobre nuestros cursos, no dudes en contactarnos.</p>
+            <form id="contact-form" action="https://formspree.io/f/xpwrgkke" method="POST">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name" placeholder="Nombre" required>
                 <label for="email">Correo Electrónico</label>
@@ -72,6 +72,7 @@
                 <textarea id="message" name="message" placeholder="Escribe tu duda o consulta aquí..." required></textarea>
                 <button type="submit" class="btn-submit">Enviar</button>
             </form>
+            <div id="form-response" style="display:none; color: green;">Gracias por tu mensaje. Te responderemos pronto.</div>
             
         </section>
     </main>
@@ -81,6 +82,7 @@
 <script src="js/buscador.js"></script>
 <script src="js/carrito.js"></script>
 <script src="js/listarcursos.js"></script>
+<script src="js/contacto.js"></script>
 <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">

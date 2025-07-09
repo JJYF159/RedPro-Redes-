@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sql = require('mssql');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 const app = express();
 
