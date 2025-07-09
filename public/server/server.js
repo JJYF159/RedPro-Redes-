@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // 📁 Servir archivos estáticos desde la carpeta "public"
-app.use(express.static(path.join(__dirname, '..'))); // Desde /public/server → sube a /public
+app.use(express.static(path.join(__dirname, '..', 'public'))); // Desde /public/server → sube a /public
 
 // 🔒 Configura la conexión a SQL Server
 const dbConfig = {
@@ -71,12 +71,6 @@ app.get('/cursos', async (req, res) => {
     res.status(500).send("Error al obtener cursos");
   }
 });
-
-// 🚀 Inicia el servidor
-app.listen(3000, () => {
-  console.log('✅ Servidor corriendo en: http://localhost:3000');
-});
-
 // Manejo de errores globales
 process.on('uncaughtException', err => {
   console.error('❌ Error no capturado:', err);
@@ -126,3 +120,50 @@ app.post('/logout', (req, res) => {
   res.clearCookie('nombreUsuario');
   res.redirect('/IniciarSesion.html');
 });
+//========= Ruta para enviar mensajes de contacto ==========//
+app.post('/contacto', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    // Guardar en SQL Server
+    await sql.connect(dbConfig);
+    await sql.query`
+      INSERT INTO Mensajes (Nombre, Email, Mensaje)
+      VALUES (${name}, ${email}, ${message})
+    `;
+
+    // Enviar correo
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'kirito159489@gmail.com',
+        pass: 'gwbx wscx jhqw uajj'
+      }
+    });
+
+    await transporter.sendMail({
+      from: `"Formulario Web RedPro" <${email}>`,
+      to: 'kirito159489@gmail.com',
+      subject: `Nuevo mensaje de ${name}`,
+      html: `
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mensaje:</strong><br>${message}</p>
+      `
+    });
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Error al enviar el mensaje:", err);
+    res.status(500).json({ success: false });
+  }
+
+  
+});
+
+// 🚀 Inicia el servidor
+app.listen(3000, () => {
+  console.log('✅ Servidor corriendo en: http://localhost:3000');
+});
+
+
