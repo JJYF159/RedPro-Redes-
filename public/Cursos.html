@@ -1,107 +1,358 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Cursos - RedPro Academy</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Iconos para la lupa -->
+    <link rel="stylesheet" href="css/curso-preview.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Incluye el CSS de Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
 </head>
-<body>
-    <header>
-        <div class="barra_Navegacion">
-            <nav class="navbar">
+<body class="modern-body">
+    <!-- Header moderno -->
+    <header class="modern-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
                 <!-- Logo -->
-                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="logo" onclick="location.href='index.html'">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="modern-logo">
+                </a>
 
-                <!-- Enlaces -->
-                <ul class="navbar_enlaces">
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a class= "active" href="Cursos.html">CURSOS</a></li>
-                    <li><a href="Staff.html">STAFF</a></li>
-                    <li><a href="Conocenos.html">CONOCENOS</a></li>
-                </ul>
-                <div class="carrito-container">
-                    <i class="bi bi-cart" onclick="location.href='Pago.html'"></i>
-                    <span id="carrito-contador">0</span>
-                </div>
-                <!-- Barra de búsqueda -->
-                <div class="barra-busqueda position-relative">
-                    <input type="text" id="input-busqueda" placeholder="Buscar...">
-                    <button><i class="fa fa-search"></i></button>
-                <div id="resultados-busqueda" class="resultados-dropdown"></div>
-                </div>
+                <!-- Toggle para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <!-- Botones de sesión -->
-                <div class="Botones">
-                    <button id="btn-registrarse" onclick="location.href='Registrarse.html'">REGISTRARSE</button>
-                    <button id="btn-iniciar" onclick="location.href='IniciarSesion.html'">INICIAR SESIÓN</button>
-                    <button id="btn-logout" style="display: none;" onclick="cerrarSesion()">CERRAR SESIÓN</button>
+                <!-- Enlaces de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-home"></i> INICIO
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Cursos.html">
+                                <i class="fas fa-graduation-cap"></i> CURSOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Staff.html">
+                                <i class="fas fa-users"></i> STAFF
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Conocenos.html">
+                                <i class="fas fa-info-circle"></i> CONÓCENOS
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Búsqueda moderna -->
+                    <div class="search-container me-3">
+                        <div class="search-box">
+                            <input type="text" id="input-busqueda" placeholder="Buscar cursos...">
+                            <button type="button" class="search-btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <div id="resultados-busqueda" class="search-results"></div>
+                    </div>
+
+                    <!-- Carrito y sesión -->
+                    <div class="header-actions">
+                        <div class="cart-icon" style="cursor:pointer;" onclick="window.toggleSidebar ? window.toggleSidebar() : console.log('toggleSidebar no disponible')">>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="carrito-contador" class="cart-badge">0</span>
+                        </div>
+                        
+                        <div class="auth-buttons">
+                            <button id="btn-registrarse" class="btn btn-outline-primary me-2" onclick="location.href='Registrarse.html'">
+                                <i class="fas fa-user-plus"></i> Registrarse
+                            </button>
+                            <button id="btn-iniciar" class="btn btn-primary" onclick="location.href='IniciarSesion.html'">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                            </button>
+                            <button id="btn-logout" class="btn btn-danger" style="display: none;" onclick="cerrarSesion()">
+                                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="Imagenes/slider1.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider2.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider3.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider4.jpg"></div>
+    <!-- Sidebar de Resumen de Compra -->
+    <div id="sidebar-carrito" class="sidebar-carrito">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-shopping-cart me-2"></i>Resumen de compra</h4>
+            <button class="close-sidebar" aria-label="Cerrar">&times;</button>
         </div>
+        <div id="sidebar-carrito-items" class="sidebar-items">
+            <!-- Los productos del carrito se mostrarán aquí -->
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <section class="cursos-grid" id="cursos-container">
-        <!-- Aquí se insertarán los cursos desde JS -->
-        </section>
-        <section class="FormDudas">
-            <h2 class="form_title">¿Tienes Dudas?</h2>
-            <p class="form_p">Si tienes alguna pregunta o necesitas más información sobre nuestros cursos, no dudes en contactarnos.</p>
-            <form id="contact-form">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" placeholder="Nombre" required>
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" placeholder="Escribe tu duda o consulta aquí..." required></textarea>
-                <button type="submit" class="btn-submit">Enviar</button>
-            </form>
-            <div id="form-response" style="display:none; color: green;">Gracias por tu mensaje. Te responderemos pronto.</div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span> <span id="sidebar-carrito-total">S/ 0.00</span>
+            </div>
+            <button id="sidebar-ir-carrito" class="btn btn-success w-100 mt-2">
+                <i class="fas fa-lock me-2"></i>Ir al carrito
+            </button>
+            <div class="sidebar-info mt-2 text-center text-muted" style="font-size:0.95em;">
+                <i class="fas fa-info-circle"></i> Debes iniciar sesión o registrarte para finalizar la compra
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section Moderno -->
+    <section class="hero-cursos">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Cursos de Redes y Ciberseguridad</h1>
+                <p class="hero-subtitle">Aprende con expertos certificados y obtén las habilidades más demandadas del mercado tecnológico</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Estudiantes</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Cursos</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-certificate"></i>
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfacción</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="hero-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Cursos -->
+    <section class="course-filters">
+        <div class="container">
+            <div class="filter-header">
+                <h2>Explora Nuestros Cursos</h2>
+                <p>Encuentra el curso perfecto para tu nivel y objetivos</p>
+            </div>
             
-        </section>
-    </main>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label>Categoría:</label>
+                    <select id="filter-categoria" class="filter-select">
+                        <option value="">Todas las categorías</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Ciberseguridad">Ciberseguridad</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="Cisco">Cisco</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Nivel:</label>
+                    <select id="filter-nivel" class="filter-select">
+                        <option value="">Todos los niveles</option>
+                        <option value="principiante">Principiante</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="avanzado">Avanzado</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Precio:</label>
+                    <select id="filter-precio" class="filter-select">
+                        <option value="">Cualquier precio</option>
+                        <option value="0-50">S/ 0 - 50</option>
+                        <option value="50-100">S/ 50 - 100</option>
+                        <option value="100+">S/ 100+</option>
+                    </select>
+                </div>
+                
+                <button class="filter-reset" id="reset-filters">
+                    <i class="fas fa-refresh"></i>
+                    Limpiar filtros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Cursos Mejorado -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-header">
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="cursos-grid modern-grid" id="cursos-container">
+                <!-- Los cursos se cargarán aquí dinámicamente -->
+            </div>
+            
+            <!-- Loading State eliminado -->
+            
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <i class="fas fa-search fa-3x"></i>
+                <h3>No se encontraron cursos</h3>
+                <p>Intenta ajustar los filtros o buscar con otros términos</p>
+                <button class="btn-primary" onclick="resetFilters()">Ver todos los cursos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto Mejorada -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>¿Tienes Dudas?</h2>
+                    <p>Nuestro equipo de expertos está aquí para ayudarte a elegir el curso perfecto para tu carrera profesional.</p>
+                    
+                    <div class="contact-features">
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Respuesta en 24 horas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Asesoría personalizada</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Orientación académica</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contact-form" class="modern-contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nombre completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecciona un tema</option>
+                                <option value="info-curso">Información sobre cursos</option>
+                                <option value="certificacion">Certificaciones</option>
+                                <option value="precios">Precios y descuentos</option>
+                                <option value="tecnico">Soporte técnico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Describe tu consulta..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit modern-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                    
+                    <div id="form-response" class="form-response"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer moderno -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="footer-logo">
+                        <p>Formando profesionales en redes y ciberseguridad desde 2020. Tu futuro tecnológico comienza aquí.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h5>Navegación</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="Cursos.html">Cursos</a></li>
+                            <li><a href="Staff.html">Staff</a></li>
+                            <li><a href="Conocenos.html">Conócenos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Cursos Populares</h5>
+                        <ul class="footer-links">
+                            <li><a href="Cursos.html">CCNA</a></li>
+                            <li><a href="Cursos.html">Ciberseguridad</a></li>
+                            <li><a href="Cursos.html">Linux</a></li>
+                            <li><a href="Cursos.html">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Contacto</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> info@redproacademy.com</p>
+                            <p><i class="fas fa-phone"></i> +51 999 888 777</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 RedPro Academy. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p>Desarrollado por JJYF27</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/carrito-manager.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/listarcursos.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/sidebar-carrito.js"></script>
+    <script src="js/curso-preview.js"></script>
+
 </body>
-<script src="js/swipe.js"></script>
-<script src="js/main.js"></script>
-<script src="js/buscador.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/listarcursos.js"></script>
-<script src="js/contacto.js"></script>
-<footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="footer-logo-img" onclick="location.href='index.html'">
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Inicio</a>
-            <a href="Cursos.html">Cursos</a>
-            <a href="Staff.html">Staff</a>
-            <a href="Conocenos.html">Conócenos</a>
-        </div>
-        <div class="footer-buttons">
-            <button onclick="location.href='registro.html'">Registrarse</button>
-            <button onclick="location.href='login.html'">Iniciar sesión</button>
-        </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 RedPro Academy. Todos los derechos reservados.</p>
-            <p>© JJYF27.</p>
-        </div>
-</footer>
 </html>

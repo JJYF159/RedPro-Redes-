@@ -1,123 +1,483 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>RedPro Academy - Educación en Redes y Ciberseguridad</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Iconos para la lupa -->
+    <link rel="stylesheet" href="css/curso-preview.css">
+    <link rel="stylesheet" href="css/slider-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Incluye el CSS de Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-
 </head>
-<body>
-    <header>
-        <div class="barra_Navegacion">
-            <nav class="navbar">
+<body class="modern-body">
+    <!-- Header moderno -->
+    <header class="modern-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
                 <!-- Logo -->
-                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="logo" onclick="location.href='index.html'">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="modern-logo">
+                </a>
 
-                <!-- Enlaces -->
-                <ul class="navbar_enlaces">
-                    <li><a class= "active" href="index.html">INICIO</a></li>
-                    <li><a href="Cursos.html">CURSOS</a></li>
-                    <li><a href="Staff.html">STAFF</a></li>
-                    <li><a href="Conocenos.html">CONOCENOS</a></li>
-                </ul>
-                <div class="carrito-container">
-                    <i class="bi bi-cart" onclick="location.href='Pago.html'"></i>
-                    <span id="carrito-contador">0</span>
-                </div>
-                <!-- Barra de búsqueda -->
-                <div class="barra-busqueda position-relative">
-                    <input type="text" id="input-busqueda" placeholder="Buscar...">
-                    <button><i class="fa fa-search"></i></button>
-                <div id="resultados-busqueda" class="resultados-dropdown"></div>
-                </div>
+                <!-- Toggle para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-               <!-- Botones de sesión -->
-                <div class="Botones">
-                    <button id="btn-registrarse" onclick="location.href='Registrarse.html'">REGISTRARSE</button>
-                    <button id="btn-iniciar" onclick="location.href='IniciarSesion.html'">INICIAR SESIÓN</button>
-                    <button id="btn-logout" style="display: none;" onclick="cerrarSesion()">CERRAR SESIÓN</button>
-                </div>
-            </nav>
+                <!-- Enlaces de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">
+                                <i class="fas fa-home"></i> INICIO
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Cursos.html">
+                                <i class="fas fa-graduation-cap"></i> CURSOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Staff.html">
+                                <i class="fas fa-users"></i> STAFF
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Conocenos.html">
+                                <i class="fas fa-info-circle"></i> CONÓCENOS
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Búsqueda moderna -->
+                    <div class="search-container me-3">
+                        <div class="search-box">
+                            <input type="text" id="input-busqueda" placeholder="Buscar cursos...">
+                            <button type="button" class="search-btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <div id="resultados-busqueda" class="search-results"></div>
+                    </div>
+
+                    <!-- Carrito y sesión -->
+                    <div class="header-actions">
+                        <div class="cart-icon" style="cursor:pointer;" onclick="window.toggleSidebar ? window.toggleSidebar() : console.log('toggleSidebar no disponible')">>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="carrito-contador" class="cart-badge">0</span>
+                        </div>
+    <!-- Sidebar de Resumen de Compra global -->
+    <div id="sidebar-carrito" class="sidebar-carrito">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-shopping-cart me-2"></i>Resumen de compra</h4>
+            <button class="close-sidebar" aria-label="Cerrar">&times;</button>
         </div>
+        <div id="sidebar-carrito-items" class="sidebar-items">
+            <!-- Los productos del carrito se mostrarán aquí -->
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span> <span id="sidebar-carrito-total">S/ 0.00</span>
+            </div>
+            <button id="sidebar-ir-carrito" class="btn btn-success w-100 mt-2">
+                <i class="fas fa-lock me-2"></i>Ir al carrito
+            </button>
+            <div class="sidebar-info mt-2 text-center text-muted" style="font-size:0.95em;">
+                <i class="fas fa-info-circle"></i> Debes iniciar sesión o registrarte para finalizar la compra
+            </div>
+        </div>
+    </div>
+                        
+                        <div class="auth-buttons">
+                            <button id="btn-registrarse" class="btn btn-outline-primary me-2" onclick="location.href='Registrarse.html'">
+                                <i class="fas fa-user-plus"></i> Registrarse
+                            </button>
+                            <button id="btn-iniciar" class="btn btn-primary" onclick="location.href='IniciarSesion.html'">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                            </button>
+                            <button id="btn-logout" class="btn btn-danger" style="display: none;" onclick="cerrarSesion()">
+                                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
-    <main>
-        <div class="bienvenida">
-            <span class="punto-azul"></span>
-            <strong>BIENVENIDO ... ¡EXPLORA TUS CONOCIMIENTOS!</strong>
-        </div>
+    <!-- Mensaje de bienvenida -->
+    <div class="bienvenida">
+        <span class="punto-azul"></span>
+        <strong>BIENVENIDO ... ¡EXPLORA TUS CONOCIMIENTOS!</strong>
+    </div>
 
-        <div class="swiper">
+    <!-- Slider principal mejorado -->
+    <div class="swiper hero-swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="Imagenes/slider1.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider2.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider3.jpg"></div>
-            <div class="swiper-slide"><img src="Imagenes/slider4.jpg"></div>
-        </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        
-
-        <div class="contenido">
-        <h2 class="Cursos-Text">EXPLORA NUESTROS CURSOS DE REDES</h2>
-        <section class="cursos-grid" id="cursos-container">
-            <!-- Aquí se insertarán los cursos dinámicamente -->
-        </section>
-        </div>
-
-        <div class="contenedor-boton">
-            <button class="Botones_cursos" onclick="location.href = 'Cursos.html'">VER MÁS CURSOS</button>
-        </div>
-        <div class="quienes-somos">
-            <div class="quienes-somos-imagen">
-                <img src="Imagenes/REDPRO.png" alt="¿Quiénes somos?">
+            <div class="swiper-slide" style="visibility: visible !important; opacity: 1 !important;">
+                <img src="Imagenes/slider1.jpg" alt="Domina las Redes">
+                <div class="slide-content">
+                    <h2 class="slide-title">Domina las Tecnologías de Redes</h2>
+                    <p class="slide-description">Aprende con nuestros cursos especializados y obtén certificaciones internacionales reconocidas por la industria.</p>
+                    <a href="Cursos.html" class="slide-button">Explorar Cursos</a>
+                </div>
             </div>
-            <div class="quienes-somos-texto">
-                <h2>¿Quiénes somos?</h2>
-                <p>
-                    En <strong>RedPro Academy</strong> somos una comunidad dedicada a brindar educación de calidad en redes, ciberseguridad y tecnologías de la información. Nuestra misión es formar profesionales altamente capacitados a través de cursos prácticos, accesibles y actualizados.
-                </p>
-                <p>
-                    Contamos con instructores certificados, experiencia en el campo y una plataforma intuitiva que permite aprender desde cualquier lugar.
-                </p>
-                <div class="Contenedor-boton">
-                        <button class="botones_info" data-id="información" onclick="location.href='Conocenos.html'">Más información</button>
+            <div class="swiper-slide" style="visibility: visible !important; opacity: 1 !important;">
+                <img src="Imagenes/slider2.jpg" alt="Ciberseguridad">
+                <div class="slide-content">
+                    <h2 class="slide-title">Conviértete en Experto en Ciberseguridad</h2>
+                    <p class="slide-description">Protege sistemas e información con las últimas técnicas y herramientas de seguridad informática.</p>
+                    <a href="Cursos.html" class="slide-button">Ver Programas</a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="visibility: visible !important; opacity: 1 !important;">
+                <img src="Imagenes/slider3.jpg" alt="Certificaciones Cisco">
+                <div class="slide-content">
+                    <h2 class="slide-title">Certificaciones Cisco Oficiales</h2>
+                    <p class="slide-description">Prepárate para obtener las certificaciones más demandadas del mercado con nuestros instructores certificados.</p>
+                    <a href="Cursos.html" class="slide-button">Conoce más</a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="visibility: visible !important; opacity: 1 !important;">
+                <img src="Imagenes/slider4.jpg" alt="Aprende desde casa">
+                <div class="slide-content">
+                    <h2 class="slide-title">Formación 100% Online y Flexible</h2>
+                    <p class="slide-description">Estudia a tu ritmo desde cualquier lugar con acceso a laboratorios virtuales y soporte personalizado.</p>
+                    <a href="Conocenos.html" class="slide-button">Nuestra Metodología</a>
                 </div>
             </div>
         </div>
-    </main>
-</body>
-<script src="js/swipe.js"></script>
-<script src="js/main.js"></script>
-<script src="js/buscador.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/listarcursos.js"></script>
-<script src="js/slider.js"></script>
-<footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="Imagenes/REDPRO.png" alt="REDPRO" class="footer-logo-img" onclick="location.href='index.html'">
+        <!-- Navegación del slider -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Sección de características -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Certificaciones Oficiales</h3>
+                        <p>Obtén certificaciones reconocidas internacionalmente que impulsen tu carrera profesional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Laboratorios Virtuales</h3>
+                        <p>Practica en entornos reales con equipos Cisco y tecnologías de última generación.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Instructores Expertos</h3>
+                        <p>Aprende de profesionales certificados con años de experiencia en la industria.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-            <a href="index.html">Inicio</a>
-            <a href="Cursos.html">Cursos</a>
-            <a href="Staff.html">Staff</a>
-            <a href="Conocenos.html">Conócenos</a>
+    </section>
+
+    <!-- Sección de cursos populares -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Cursos Más Populares</h2>
+                <p class="section-subtitle">Descubre nuestros cursos destacados en redes y ciberseguridad</p>
+            </div>
+            
+            <div class="row" id="cursos-container">
+                <!-- Los cursos se cargarán dinámicamente aquí -->
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="Cursos.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-graduation-cap me-2"></i>Ver Todos los Cursos
+                </a>
+            </div>
         </div>
-        <div class="footer-buttons">
-            <button onclick="location.href='registro.html'">Registrarse</button>
-            <button onclick="location.href='login.html'">Iniciar sesión</button>
+    </section>
+    <!-- Sección Quiénes Somos modernizada -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="img-fluid">
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3>500+</h3>
+                                <p>Estudiantes</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Cursos</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>98%</h3>
+                                <p>Satisfacción</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h2 class="about-title">¿Quiénes Somos?</h2>
+                        <p class="about-text">
+                            En <strong>RedPro Academy</strong> somos una comunidad dedicada a brindar educación de calidad en redes, ciberseguridad y tecnologías de la información. Nuestra misión es formar profesionales altamente capacitados a través de cursos prácticos, accesibles y actualizados.
+                        </p>
+                        <p class="about-text">
+                            Contamos con instructores certificados, experiencia en el campo y una plataforma intuitiva que permite aprender desde cualquier lugar.
+                        </p>
+                        
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Instructores certificados</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Contenido actualizado</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Aprendizaje práctico</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Soporte 24/7</span>
+                            </div>
+                        </div>
+                        
+                        <a href="Conocenos.html" class="btn btn-primary mt-4">
+                            <i class="fas fa-info-circle me-2"></i>Más Información
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Sección de testimonios -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Lo Que Dicen Nuestros Estudiantes</h2>
+                <p class="section-subtitle">Testimonios reales de profesionales que transformaron su carrera</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Gracias a RedPro Academy obtuve mi certificación CCNA y conseguí un ascenso en mi trabajo. Los laboratorios virtuales son increíbles."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="Imagenes/Staff1.jpg" alt="Ana García">
+                            <div class="author-info">
+                                <h6>Ana García</h6>
+                                <small>Ingeniera de Redes</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Los cursos de ciberseguridad me abrieron las puertas a un nuevo campo profesional. Instructores excelentes y contenido actualizado."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="Imagenes/Staff2.jpg" alt="Carlos López">
+                            <div class="author-info">
+                                <h6>Carlos López</h6>
+                                <small>Especialista en Ciberseguridad</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"La flexibilidad de estudiar online me permitió combinar el estudio con el trabajo. Ahora soy administrador de redes senior."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="Imagenes/Staff3.jpg" alt="María Rodriguez">
+                            <div class="author-info">
+                                <h6>María Rodriguez</h6>
+                                <small>Administradora de Redes</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 RedPro Academy. Todos los derechos reservados.</p>
-            <p>© JJYF27.</p>
+    </section>
+
+    <!-- Footer moderno -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="footer-logo">
+                        <p>Formando profesionales en redes y ciberseguridad desde 2020. Tu futuro tecnológico comienza aquí.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h5>Navegación</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="Cursos.html">Cursos</a></li>
+                            <li><a href="Staff.html">Staff</a></li>
+                            <li><a href="Conocenos.html">Conócenos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Cursos Populares</h5>
+                        <ul class="footer-links">
+                            <li><a href="Cursos.html">CCNA</a></li>
+                            <li><a href="Cursos.html">Ciberseguridad</a></li>
+                            <li><a href="Cursos.html">Linux</a></li>
+                            <li><a href="Cursos.html">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Contacto</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> info@redproacademy.com</p>
+                            <p><i class="fas fa-phone"></i> +51 999 888 777</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 RedPro Academy. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p>Desarrollado por JJYF27</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/carrito-manager.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/listarcursos.js"></script>
+    <script src="js/sidebar-carrito.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/curso-preview.js"></script>
+    <script src="js/auth.js"></script>
+    
+    <script>
+        // Inicializar Swiper para el hero
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'slide',
+            speed: 800,
+            spaceBetween: 0,
+        });
+
+        // Actualizar botones de navegación al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarBotonesNavegacion();
+        });
+    </script>
+
+    <script>
+        // Hacer que el icono del carrito abra el sidebar en todas las páginas
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Verificando sidebar-carrito en index.html');
+            
+            var cartIcon = document.querySelector('.cart-icon');
+            if(cartIcon) {
+                console.log('Ícono del carrito encontrado');
+                cartIcon.addEventListener('click', function(e) {
+                    console.log('Clic en el carrito detectado');
+                    e.preventDefault();
+                    if(typeof toggleSidebarCarrito === 'function') {
+                        console.log('Ejecutando toggleSidebarCarrito');
+                        toggleSidebarCarrito();
+                        if(typeof renderSidebarCarrito === 'function') {
+                            console.log('Ejecutando renderSidebarCarrito');
+                            renderSidebarCarrito();
+                        }
+                    }
+                });
+            }
+            
+            // Verificar que el sidebar existe
+            var sidebar = document.getElementById('sidebar-carrito');
+            if(sidebar) {
+                console.log('Sidebar encontrado con clases:', sidebar.className);
+                console.log('Sidebar CSS computado:', window.getComputedStyle(sidebar).getPropertyValue('position'), 
+                                                      window.getComputedStyle(sidebar).getPropertyValue('right'));
+            }
+        });
+    </script>
+</body>
 </html>

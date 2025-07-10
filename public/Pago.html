@@ -3,84 +3,285 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pasarela de Pago - RedPro Academy</title>
+  <title>Finalizar Compra - RedPro Academy</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="checkout-body">
 
-<div class="container carrito-contenedor">
-  <h2 class="mb-4">🛒 Resumen de tu compra</h2>
-
-    <div id="lista-carrito" class="mb-4"></div>
-    <div class="text-end mt-3">
-        <button id="btn-limpiar-carrito" class="btn btn-outline-danger">🗑️ Vaciar carrito</button>
+<!-- Header -->
+<nav class="checkout-header">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between py-3">
+      <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="checkout-logo" onclick="location.href='index.html'">
+      <div class="checkout-steps">
+        <span class="step active">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Carrito</span>
+        </span>
+        <span class="step-divider"></span>
+        <span class="step active">
+          <i class="fas fa-credit-card"></i>
+          <span>Pago</span>
+        </span>
+        <span class="step-divider"></span>
+        <span class="step">
+          <i class="fas fa-check-circle"></i>
+          <span>Confirmación</span>
+        </span>
+      </div>
     </div>
-
-  <hr>
-
-  <h3>💳 Método de Pago</h3>
-  <div class="mb-3 metodo-pago">
-    <label class="form-check-label">
-      <input type="radio" name="metodo" value="tarjeta" class="form-check-input metodo-radio" checked> Tarjeta (Visa / Mastercard)
-    </label>
-    <label class="form-check-label ms-3">
-      <input type="radio" name="metodo" value="yape" class="form-check-input metodo-radio"> Yape
-    </label>
   </div>
+</nav>
 
-  <form id="form-pago" class="row g-3">
-    <!-- Campos comunes -->
-    <div class="col-md-6">
-      <label class="form-label">Nombre completo</label>
-      <input type="text" class="form-control" id="nombre" required>
+<div class="container checkout-container">
+  <div class="row g-4">
+    
+    <!-- Columna izquierda: Formulario de pago -->
+    <div class="col-lg-8">
+      <div class="checkout-section">
+        
+        <!-- Información de contacto -->
+        <div class="payment-card">
+          <div class="payment-card-header">
+            <h3><i class="fas fa-user me-2"></i>Información de contacto</h3>
+          </div>
+          <div class="payment-card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nombre completo *</label>
+                <input type="text" class="form-control modern-input" id="nombre" required placeholder="Ingresa tu nombre completo">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Correo electrónico *</label>
+                <input type="email" class="form-control modern-input" id="email" required placeholder="ejemplo@correo.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Teléfono *</label>
+                <input type="tel" class="form-control modern-input" id="telefono-contacto" required placeholder="+51 987 654 321">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">DNI *</label>
+                <input type="text" class="form-control modern-input" id="dni" required placeholder="12345678" maxlength="8">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Método de pago -->
+        <div class="payment-card">
+          <div class="payment-card-header">
+            <h3><i class="fas fa-credit-card me-2"></i>Método de pago</h3>
+          </div>
+          <div class="payment-card-body">
+            
+            <!-- Opciones de pago -->
+            <div class="payment-methods">
+              <div class="payment-option" data-method="tarjeta">
+                <input type="radio" name="metodo" value="tarjeta" id="metodo-tarjeta" checked>
+                <label for="metodo-tarjeta" class="payment-option-label">
+                  <div class="payment-option-content">
+                    <div class="payment-icons">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="payment-icon">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" class="payment-icon2">
+                    </div>
+                    <span class="payment-text">Tarjeta de crédito o débito</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-option" data-method="yape">
+                <input type="radio" name="metodo" value="yape" id="metodo-yape">
+                <label for="metodo-yape" class="payment-option-label">
+                  <div class="payment-option-content">
+                    <div class="payment-icons">
+                      <i class="fas fa-mobile-alt payment-icon-fa"></i>
+                    </div>
+                    <span class="payment-text">Yape</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-option" data-method="transferencia">
+                <input type="radio" name="metodo" value="transferencia" id="metodo-transferencia">
+                <label for="metodo-transferencia" class="payment-option-label">
+                  <div class="payment-option-content">
+                    <div class="payment-icons">
+                      <i class="fas fa-university payment-icon-fa"></i>
+                    </div>
+                    <span class="payment-text">Transferencia bancaria</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Formularios por método -->
+            <div id="tarjeta-form" class="payment-form">
+              <div class="row g-3 mt-3">
+                <div class="col-12">
+                  <label class="form-label">Número de tarjeta *</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control modern-input" id="numero-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19">
+                    <span class="input-group-text card-type-icon" id="card-type-icon">
+                      <i class="fas fa-credit-card"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label">Nombre en la tarjeta *</label>
+                  <input type="text" class="form-control modern-input" id="nombre-tarjeta" placeholder="Como aparece en la tarjeta">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">CVV *</label>
+                  <input type="text" class="form-control modern-input" id="cvv" placeholder="123" maxlength="4">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Fecha de vencimiento *</label>
+                  <input type="text" class="form-control modern-input" id="fecha-vencimiento" placeholder="MM/AA" maxlength="5">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Cuotas</label>
+                  <select class="form-select modern-input" id="cuotas">
+                    <option value="1">1 cuota sin interés</option>
+                    <option value="3">3 cuotas sin interés</option>
+                    <option value="6">6 cuotas sin interés</option>
+                    <option value="12">12 cuotas con interés</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="yape-form" class="payment-form d-none">
+              <div class="yape-container text-center py-4">
+                <div class="yape-qr">
+                  <i class="fas fa-qrcode fa-5x text-primary mb-3"></i>
+                  <h5>Escanea el código QR con tu app Yape</h5>
+                  <p class="text-muted">O ingresa el número de teléfono asociado</p>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <input type="tel" class="form-control modern-input" id="telefono-yape" placeholder="987 654 321" maxlength="9">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="transferencia-form" class="payment-form d-none">
+              <div class="bank-info">
+                <h5>Datos para transferencia:</h5>
+                <div class="bank-details">
+                  <p><strong>Banco:</strong> BCP</p>
+                  <p><strong>Cuenta corriente:</strong> 194-2356789-0-12</p>
+                  <p><strong>CCI:</strong> 002-194-002356789012-45</p>
+                  <p><strong>Titular:</strong> RedPro Academy S.A.C.</p>
+                </div>
+                <div class="upload-voucher">
+                  <label class="form-label">Subir comprobante de pago *</label>
+                  <input type="file" class="form-control modern-input" id="comprobante" accept="image/*,.pdf">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Términos y condiciones -->
+        <div class="payment-card">
+          <div class="payment-card-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="terminos" required>
+              <label class="form-check-label" for="terminos">
+                Acepto los <a href="#" class="text-primary">términos y condiciones</a> y la <a href="#" class="text-primary">política de privacidad</a>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="col-md-6">
-      <label class="form-label">Dirección</label>
-      <input type="text" class="form-control" id="direccion" required>
+    <!-- Columna derecha: Resumen de compra -->
+    <div class="col-lg-4">
+      <div class="order-summary">
+        <div class="order-summary-header">
+          <h4><i class="fas fa-shopping-bag me-2"></i>Resumen de compra</h4>
+        </div>
+        
+        <div class="order-items" id="lista-carrito">
+          <!-- Aquí se cargarán los items del carrito -->
+        </div>
+
+        <div class="order-totals">
+          <div class="total-line">
+            <span>Subtotal:</span>
+            <span id="subtotal">S/ 0.00</span>
+          </div>
+          <div class="total-line">
+            <span>Descuento:</span>
+            <span id="descuento" class="text-success">-S/ 0.00</span>
+          </div>
+          <div class="total-line">
+            <span>IGV (18%):</span>
+            <span id="igv">S/ 0.00</span>
+          </div>
+          <div class="total-line total-final">
+            <span><strong>Total:</strong></span>
+            <span id="total-final"><strong>S/ 0.00</strong></span>
+          </div>
+        </div>
+
+        <!-- Código de descuento -->
+        <div class="discount-section">
+          <div class="input-group">
+            <input type="text" class="form-control" id="codigo-descuento" placeholder="Código de descuento">
+            <button class="btn btn-outline-primary" id="aplicar-descuento">Aplicar</button>
+          </div>
+        </div>
+
+        <!-- Botón de pago -->
+        <button type="submit" form="form-pago" class="btn-checkout-primary">
+          <i class="fas fa-lock me-2"></i>
+          <span>Finalizar compra</span>
+          <span id="total-btn">S/ 0.00</span>
+        </button>
+
+        <!-- Seguridad -->
+        <div class="security-badges text-center">
+          <small class="text-muted">
+            <i class="fas fa-shield-alt me-1"></i>
+            Compra 100% segura
+          </small>
+        </div>
+      </div>
     </div>
 
-    <!-- Campos para Tarjeta -->
-    <div class="tarjeta-campos" id="pago-tarjeta">
-      <div class="col-md-6">
-        <label class="form-label">Número de tarjeta</label>
-        <input type="text" class="form-control" id="tarjeta" maxlength="16">
-      </div>
-
-      <div class="col-md-3">
-        <label class="form-label">Expiración</label>
-        <input type="month" class="form-control" id="fecha">
-      </div>
-
-      <div class="col-md-3">
-        <label class="form-label">CVV</label>
-        <input type="text" class="form-control" id="cvv" maxlength="4">
-      </div>
-    </div>
-
-    <!-- Campos para Yape -->
-    <div class="yape-campos hidden" id="pago-yape">
-      <div class="col-md-6">
-        <label class="form-label">Número de teléfono (Yape)</label>
-        <input type="tel" class="form-control" id="telefono" maxlength="9" placeholder="Ej: 987654321">
-      </div>
-
-      <div class="col-md-6">
-        <label class="form-label">Código de confirmación</label>
-        <input type="text" class="form-control" id="codigo-yape" maxlength="6">
-      </div>
-    </div>
-
-    <div class="col-12 text-end">
-      <button type="submit" class="btn btn-pago px-4">PAGAR AHORA</button>
-    </div>
-  </form>
-
-  <div id="mensaje-exito" class="mensaje-exito d-none">
-    ✅ ¡Gracias por tu compra! En breve recibirás un correo con los detalles.
   </div>
 </div>
-<script src="js/main.js"></script>
+
+<!-- Formulario oculto para manejo de envío -->
+<form id="form-pago" style="display: none;"></form>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmacionModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center py-5">
+        <div class="success-animation">
+          <i class="fas fa-check-circle fa-5x text-success mb-3"></i>
+          <h3>¡Compra exitosa!</h3>
+          <p class="text-muted">Hemos enviado los detalles de tu compra a tu correo electrónico.</p>
+          <button class="btn btn-primary" onclick="location.href='index.html'">Volver al inicio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/carrito-manager.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/pago.js"></script>
+
 </body>
 </html>

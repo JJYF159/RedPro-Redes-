@@ -1,0 +1,112 @@
+[build]
+  command = "echo 'Static site - no build needed'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ⚠️ CAMBIAR ESTAS URLs POR LA DE TU BACKEND DE RENDER
+[[redirects]]
+  from = "/api/*"
+  to = "https://TU-BACKEND-RENDER.onrender.com/api/:splat"
+  status = 200
+  force = true
+  
+[[redirects]]
+  from = "/cursos"
+  to = "https://TU-BACKEND-RENDER.onrender.com/cursos"
+  status = 200
+  force = true
+  
+[[redirects]]
+  from = "/contacto"
+  to = "https://TU-BACKEND-RENDER.onrender.com/contacto"
+  status = 200
+  force = true
+  
+[[redirects]]
+  from = "/procesar-orden"
+  to = "https://TU-BACKEND-RENDER.onrender.com/procesar-orden"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "https://TU-BACKEND-RENDER.onrender.com/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/registro"
+  to = "https://TU-BACKEND-RENDER.onrender.com/registro"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/logout"
+  to = "https://TU-BACKEND-RENDER.onrender.com/logout"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/get-usuario"
+  to = "https://TU-BACKEND-RENDER.onrender.com/get-usuario"
+  status = 200
+  force = true
+
+# Redirigir rutas no encontradas al index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.onrender.com"
+
+# Cache para archivos estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/Imagenes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Headers de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.onrender.com"
+
+# Cache para archivos estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/Imagenes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

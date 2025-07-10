@@ -1,0 +1,238 @@
+/* slider-enhanced.css - Estilos mejorados para el slider de la página principal */
+
+/* Contenedor principal del slider */
+.hero-swiper {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Altura fija para el slider */
+    margin-bottom: 50px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Slides */
+.hero-swiper .swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Imágenes en los slides */
+.hero-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Garantizar que la imagen sea un bloque */
+    opacity: 1 !important; /* Forzar opacidad para evitar slides transparentes */
+    visibility: visible !important; /* Asegurar que sea visible */
+    transform: none; /* Eliminar transformación que podría causar problemas */
+}
+
+/* Efecto de zoom lento en las imágenes */
+.hero-swiper .swiper-slide-active img {
+    transform: scale(1.1);
+}
+
+/* Overlay con gradiente para mejorar visibilidad del texto */
+.hero-swiper .swiper-slide:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+/* Contenido del slide */
+.hero-swiper .slide-content {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    width: 60%;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero-swiper .slide-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+    transition-delay: 0.3s;
+}
+
+.hero-swiper .slide-description {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+    transition-delay: 0.5s;
+}
+
+.hero-swiper .slide-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00B8C4;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+    transition-delay: 0.7s;
+}
+
+.hero-swiper .slide-button:hover {
+    background-color: #0096a3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,184,196,0.3);
+}
+
+/* Animar entrada de elementos cuando el slide está activo */
+.hero-swiper .swiper-slide-active .slide-title,
+.hero-swiper .swiper-slide-active .slide-description,
+.hero-swiper .swiper-slide-active .slide-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botones de navegación */
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
+    color: white;
+    background: rgba(0,0,0,0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.hero-swiper .swiper-button-next:hover,
+.hero-swiper .swiper-button-prev:hover {
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-swiper .swiper-button-next:after,
+.hero-swiper .swiper-button-prev:after {
+    font-size: 22px;
+}
+
+/* Paginación */
+.hero-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.7);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    background: #00B8C4;
+    width: 30px;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+/* Corregir problema de slides blancos */
+.swiper-slide-duplicate,
+.swiper-slide-duplicate-active,
+.swiper-slide-duplicate-next,
+.swiper-slide-duplicate-prev {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    position: relative;
+}
+
+/* Forzar visibilidad de todos los slides */
+.swiper-slide {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1;
+}
+
+/* Asegurar que swiper wrapper no tenga estilos que causen problemas */
+.hero-swiper .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+/* Reset para slides activos y adyacentes */
+.swiper-slide-active, 
+.swiper-slide-next, 
+.swiper-slide-prev {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Asegurar que imágenes estén visibles y bien posicionadas */
+.swiper-slide img {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .hero-swiper {
+        height: 450px;
+    }
+    
+    .hero-swiper .slide-content {
+        width: 80%;
+    }
+    
+    .hero-swiper .slide-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-swiper {
+        height: 350px;
+    }
+    
+    .hero-swiper .slide-content {
+        width: 90%;
+        bottom: 15%;
+    }
+    
+    .hero-swiper .slide-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-swiper .slide-description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-swiper {
+        height: 300px;
+    }
+    
+    .hero-swiper .swiper-button-next,
+    .hero-swiper .swiper-button-prev {
+        display: none;
+    }
+}

@@ -1,182 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Staff Completo - RedPro Academy</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Iconos para la lupa -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Incluye el CSS de Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <!-- BootsTrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+<body class="modern-body">
+    <!-- Header moderno -->
+    <header class="modern-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="modern-logo">
+                </a>
 
-<section class="container my-5">
-  <h2 class="text-center mb-4 Staff-texto">Nuestro Staff</h2>
-  <div class="row g-4 justify-content-center">
+                <!-- Toggle para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <!-- Miembro del staff -->
-    <div class="col-md-4 col-lg-3">
-      <div class="card text-center shadow-lg p-3">
-        <img src="Imagenes/staff1.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 1" width="120" height="120">
-        <h5 class="fw-bold">Laura Martínez</h5>
-        <p class="text-muted">Especialista en Redes Cisco</p>
-      </div>
-    </div>
+                <!-- Enlaces de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-home"></i> INICIO
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Cursos.html">
+                                <i class="fas fa-graduation-cap"></i> CURSOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Staff.html">
+                                <i class="fas fa-users"></i> STAFF
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Conocenos.html">
+                                <i class="fas fa-info-circle"></i> CONÓCENOS
+                            </a>
+                        </li>
+                    </ul>
 
-    <div class="col-md-4 col-lg-3">
-      <div class="card text-center shadow-lg p-3">
-        <img src="Imagenes/staff2.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 2" width="120" height="120">
-        <h5 class="fw-bold">Carlos Herrera</h5>
-        <p class="text-muted">Experto en Ciberseguridad</p>
-      </div>
-    </div>
+                    <!-- Búsqueda moderna -->
+                    <div class="search-container me-3">
+                        <div class="search-box">
+                            <input type="text" id="input-busqueda" placeholder="Buscar cursos...">
+                            <button type="button" class="search-btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <div id="resultados-busqueda" class="search-dropdown"></div>
+                    </div>
 
-    <div class="col-md-4 col-lg-3">
-      <div class="card text-center shadow-lg p-3">
-        <img src="Imagenes/staff3.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 3" width="120" height="120">
-        <h5 class="fw-bold">Mónica Ríos</h5>
-        <p class="text-muted">Desarrolladora Full Stack</p>
-      </div>
-    </div>
+                    <!-- Carrito y usuario -->
+                    <div class="header-actions">
+                        <div class="cart-icon" style="cursor:pointer;">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="carrito-contador" class="cart-badge">0</span>
+                        </div>
+                        <div class="auth-buttons">
+                            <button id="btn-registrarse" class="btn btn-outline-primary me-2" onclick="location.href='Registrarse.html'">
+                                <i class="fas fa-user-plus"></i> REGISTRO
+                            </button>
+                            <button id="btn-iniciar" class="btn btn-primary" onclick="location.href='IniciarSesion.html'">
+                                <i class="fas fa-sign-in-alt"></i> ENTRAR
+                            </button>
+                            <button id="btn-logout" class="btn btn-outline-danger" style="display: none;" onclick="cerrarSesion()">
+                                <i class="fas fa-sign-out-alt"></i> SALIR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="col-md-4 col-lg-3">
-      <div class="card text-center shadow-lg p-3">
-        <img src="Imagenes/staff4.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 4" width="120" height="120">
-        <h5 class="fw-bold">Javier Gómez</h5>
-        <p class="text-muted">Especialista en IoT</p>
-      </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff5.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 5" width="120" height="120">
-            <h5 class="fw-bold">Ana Torres</h5>
-            <p class="text-muted">Routing y Switching</p>
+    <!-- Sidebar de Resumen de Compra global -->
+    <div id="sidebar-carrito" class="sidebar-carrito">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-shopping-cart me-2"></i>Resumen de compra</h4>
+            <button class="close-sidebar" aria-label="Cerrar">&times;</button>
+        </div>
+        <div id="sidebar-carrito-items" class="sidebar-items">
+            <!-- Los productos del carrito se mostrarán aquí -->
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span> <span id="sidebar-carrito-total">S/ 0.00</span>
+            </div>
+            <button id="sidebar-ir-carrito" class="btn btn-success w-100 mt-2">
+                <i class="fas fa-lock me-2"></i>Ir al carrito
+            </button>
+            <div class="sidebar-info mt-2 text-center text-muted" style="font-size:0.95em;">
+                <i class="fas fa-info-circle"></i> Debes iniciar sesión o registrarte para finalizar la compra
+            </div>
         </div>
     </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff6.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 6" width="120" height="120">
-            <h5 class="fw-bold">Luis Salazar</h5>
-            <p class="text-muted">Redes Inalámbricas</p>
-        </div>
-    </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section bg-gradient text-white py-5">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Nuestro Staff Completo</h1>
+                <p class="lead">Conoce a todos los expertos que forman parte de RedPro Academy</p>
+                <a href="Staff.html" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-arrow-left"></i> Volver al Staff Principal
+                </a>
+            </div>
+        </section>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff7.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 7" width="120" height="120">
-            <h5 class="fw-bold">Valeria León</h5>
-            <p class="text-muted">Seguridad de Redes</p>
-        </div>
-    </div>
+        <!-- Staff Section -->
+        <section class="container my-5">
+            <div class="row g-4 justify-content-center">
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff8.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 8" width="120" height="120">
-            <h5 class="fw-bold">Rodrigo Medina</h5>
-            <p class="text-muted">Análisis de Tráfico</p>
-        </div>
-    </div>
+                <!-- Miembro del staff -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff1.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 1" width="120" height="120">
+                        <h5 class="fw-bold">Laura Martínez</h5>
+                        <p class="text-muted">Especialista en Redes Cisco</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff9.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 9" width="120" height="120">
-            <h5 class="fw-bold">Isabel Rivas</h5>
-            <p class="text-muted">Protocolos TCP/IP</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff2.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 2" width="120" height="120">
+                        <h5 class="fw-bold">Carlos Herrera</h5>
+                        <p class="text-muted">Experto en Ciberseguridad</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff10.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 10" width="120" height="120">
-            <h5 class="fw-bold">Tomás Aguilar</h5>
-            <p class="text-muted">Cloud Networking</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff3.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 3" width="120" height="120">
+                        <h5 class="fw-bold">Mónica Ríos</h5>
+                        <p class="text-muted">Desarrolladora Full Stack</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff11.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 11" width="120" height="120">
-            <h5 class="fw-bold">Natalia Córdova</h5>
-            <p class="text-muted">Firewall y Seguridad</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff4.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 4" width="120" height="120">
+                        <h5 class="fw-bold">Javier Gómez</h5>
+                        <p class="text-muted">Especialista en IoT</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff12.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 12" width="120" height="120">
-            <h5 class="fw-bold">Jorge Palacios</h5>
-            <p class="text-muted">Redes Empresariales</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff5.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 5" width="120" height="120">
+                        <h5 class="fw-bold">Ana Torres</h5>
+                        <p class="text-muted">Routing y Switching</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff13.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 13" width="120" height="120">
-            <h5 class="fw-bold">Lucía Herrera</h5>
-            <p class="text-muted">Cisco CCNA</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff6.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 6" width="120" height="120">
+                        <h5 class="fw-bold">Luis Salazar</h5>
+                        <p class="text-muted">Redes Inalámbricas</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff14.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 14" width="120" height="120">
-            <h5 class="fw-bold">David Castro</h5>
-            <p class="text-muted">Redes LAN y WAN</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff7.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 7" width="120" height="120">
+                        <h5 class="fw-bold">Valeria León</h5>
+                        <p class="text-muted">Seguridad de Redes</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff15.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 15" width="120" height="120">
-            <h5 class="fw-bold">Andrea Quispe</h5>
-            <p class="text-muted">Seguridad de Redes</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff8.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 8" width="120" height="120">
+                        <h5 class="fw-bold">Rodrigo Medina</h5>
+                        <p class="text-muted">Análisis de Tráfico</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff16.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 16" width="120" height="120">
-            <h5 class="fw-bold">Fernando Ramos</h5>
-            <p class="text-muted">Cisco Packet Tracer</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff9.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 9" width="120" height="120">
+                        <h5 class="fw-bold">Isabel Rivas</h5>
+                        <p class="text-muted">Protocolos TCP/IP</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff17.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 17" width="120" height="120">
-            <h5 class="fw-bold">Gabriela Muñoz</h5>
-            <p class="text-muted">Redes Inalámbricas</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff10.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 10" width="120" height="120">
+                        <h5 class="fw-bold">Tomás Aguilar</h5>
+                        <p class="text-muted">Cloud Networking</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff18.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 18" width="120" height="120">
-            <h5 class="fw-bold">Diego Vargas</h5>
-            <p class="text-muted">Topologías de Red</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff11.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 11" width="120" height="120">
+                        <h5 class="fw-bold">Natalia Córdova</h5>
+                        <p class="text-muted">Firewall y Seguridad</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff19.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 19" width="120" height="120">
-            <h5 class="fw-bold">Rocío Peña</h5>
-            <p class="text-muted">Redes en la Nube</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff12.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 12" width="120" height="120">
+                        <h5 class="fw-bold">Jorge Palacios</h5>
+                        <p class="text-muted">Redes Empresariales</p>
+                    </div>
+                </div>
 
-    <div class="col-md-4 col-lg-3">
-        <div class="card text-center shadow-lg p-3">
-            <img src="Imagenes/staff20.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 20" width="120" height="120">
-            <h5 class="fw-bold">Pedro Calderón</h5>
-            <p class="text-muted">Routing Dinámico</p>
-        </div>
-    </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff13.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 13" width="120" height="120">
+                        <h5 class="fw-bold">Lucía Herrera</h5>
+                        <p class="text-muted">Cisco CCNA</p>
+                    </div>
+                </div>
 
-  </div>
-</section>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff14.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 14" width="120" height="120">
+                        <h5 class="fw-bold">David Castro</h5>
+                        <p class="text-muted">Redes LAN y WAN</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff15.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 15" width="120" height="120">
+                        <h5 class="fw-bold">Andrea Quispe</h5>
+                        <p class="text-muted">Seguridad de Redes</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff16.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 16" width="120" height="120">
+                        <h5 class="fw-bold">Fernando Ramos</h5>
+                        <p class="text-muted">Cisco Packet Tracer</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff17.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 17" width="120" height="120">
+                        <h5 class="fw-bold">Gabriela Muñoz</h5>
+                        <p class="text-muted">Redes Inalámbricas</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff18.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 18" width="120" height="120">
+                        <h5 class="fw-bold">Diego Vargas</h5>
+                        <p class="text-muted">Topologías de Red</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff19.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 19" width="120" height="120">
+                        <h5 class="fw-bold">Rocío Peña</h5>
+                        <p class="text-muted">Redes en la Nube</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="card text-center shadow-lg p-3 staff-card">
+                        <img src="Imagenes/staff20.jpg" class="rounded-circle mx-auto d-block mb-3" alt="Staff 20" width="120" height="120">
+                        <h5 class="fw-bold">Pedro Calderón</h5>
+                        <p class="text-muted">Routing Dinámico</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer igual al de index.html -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="Imagenes/REDPRO.png" alt="RedPro Academy" class="footer-logo">
+                        <p>Formando profesionales en redes y ciberseguridad desde 2020. Tu futuro tecnológico comienza aquí.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h5>Navegación</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="Cursos.html">Cursos</a></li>
+                            <li><a href="Staff.html">Staff</a></li>
+                            <li><a href="Conocenos.html">Conócenos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Cursos Populares</h5>
+                        <ul class="footer-links">
+                            <li><a href="Cursos.html">CCNA</a></li>
+                            <li><a href="Cursos.html">Ciberseguridad</a></li>
+                            <li><a href="Cursos.html">Linux</a></li>
+                            <li><a href="Cursos.html">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h5>Contacto</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> info@redproacademy.com</p>
+                            <p><i class="fas fa-phone"></i> +51 999 888 777</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 RedPro Academy. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p>Desarrollado por JJYF27</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/carrito-manager.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/sidebar-carrito.js"></script>
+
+</body>
+</html>

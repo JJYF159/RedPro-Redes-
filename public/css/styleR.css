@@ -4,19 +4,23 @@
 
 body {
   font-family: sans-serif;
-  background: #fff;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
+  color: #333;
 }
 
 .form-container {
   width: 400px;
   padding: 30px;
   border-radius: 25px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   text-align: center;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .registrologo {
@@ -54,4 +58,70 @@ button {
 
 button:hover {
   background-color: #25b9c4;
+}
+
+/* Estilos adicionales para mejor apariencia en fondo blanco */
+h2 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.login-link {
+  margin-top: 20px;
+}
+
+.login-link p {
+  color: #666;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #2cd3e1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #25b9c4;
+  text-decoration: underline;
+}
+
+.checkboxes label {
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.checkboxes input[type="checkbox"] {
+  margin: 0;
+  width: auto;
+}
+
+/* Mejoras para el botón de volver */
+.back-to-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.back-to-home .btn {
+  background: transparent;
+  border: 2px solid #2cd3e1;
+  color: #2cd3e1;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-to-home .btn:hover {
+  background: #2cd3e1;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(44, 211, 225, 0.3);
 }
