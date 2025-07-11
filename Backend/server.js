@@ -44,7 +44,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Servir archivos estáticos desde la carpeta public
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // =====================================================
 // CONFIGURACIÓN DE BASE DE DATOS Y ALMACENAMIENTO TEMPORAL
@@ -82,7 +82,7 @@ let ordenesTemp = [];
 
 // Ruta para la página principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // API status endpoint

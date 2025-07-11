@@ -75,8 +75,6 @@ PROYECTOREDES/
 │   │   ├── swipe.js             # Gestos táctiles
 │   │   ├── main.js              # Scripts generales
 │   │   └── contacto.js          # Formulario de contacto
-│   ├── server/
-│   │   └── server.js            # Backend Express
 │   ├── Imagenes/                # Recursos multimedia
 │   ├── index.html               # ⭐ Página principal (sidebar integrado)
 │   ├── Cursos.html              # ⭐ Catálogo (sidebar integrado)
@@ -86,6 +84,10 @@ PROYECTOREDES/
 │   ├── Pago.html                # ⭐ Checkout (sidebar integrado)
 │   ├── Registrarse.html         # ⭐ Registro (sin sidebar)
 │   └── IniciarSesion.html       # ⭐ Login (sin sidebar)
+├── Backend/                     # ⭐ Servidor backend
+│   ├── server.js                # Backend Express
+│   ├── package.json             # Dependencias del backend
+│   └── package-lock.json        # Lock de dependencias
 ├── RedPro/                      # Carpeta duplicada (legacy)
 ├── .env                         # Variables de entorno
 ├── package.json                 # Configuración del proyecto
@@ -176,17 +178,39 @@ EMAIL_PASS=tu-app-password
 ADMIN_EMAIL=admin@redproacademy.com
 ```
 
-### 4. Iniciar el servidor
+### 4. Instalar dependencias del backend
+```bash
+npm run install-backend
+# o directamente en la carpeta Backend
+cd Backend && npm install
+```
+
+### 5. Iniciar el servidor
 ```bash
 npm start
 # o
 npm run dev
+# o solo el backend
+npm run backend
 ```
 
-### 5. Abrir en el navegador
+### 6. Abrir en el navegador
 ```
 http://localhost:3000
 ```
+
+## 🏗️ Arquitectura Separada Frontend/Backend
+
+### Backend (./Backend/)
+- **Servidor**: Express.js en puerto 3000
+- **Base de datos**: SQL Server
+- **APIs**: Autenticación, cursos, contacto, órdenes
+- **Dependencias**: Independientes del frontend
+
+### Frontend (./public/)
+- **Archivos estáticos**: HTML, CSS, JS
+- **Servidor desarrollo**: `npm run frontend` (puerto 3000)
+- **Sin dependencias**: Puro HTML/CSS/JS
 
 ## 🚨 Bugs Críticos Solucionados
 

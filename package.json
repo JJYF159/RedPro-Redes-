@@ -4,9 +4,11 @@
   "description": "RedPro Academy - Sistema educativo para cursos de redes y ciberseguridad",
   "main": "public/index.html",
   "scripts": {
-    "start": "cd public/server && node server.js",
-    "dev": "cd public/server && node server.js",
+    "start": "cd Backend && node server.js",
+    "dev": "cd Backend && node server.js",
+    "backend": "cd Backend && npm start",
     "frontend": "npx http-server public -p 3000",
+    "install-backend": "cd Backend && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["educacion", "redes", "ciberseguridad", "cursos"],
