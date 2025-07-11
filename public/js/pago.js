@@ -315,23 +315,31 @@ class CheckoutSystem {
 
         try {
             // Simular procesamiento de pago
-            await this.processPayment();
+            console.log('🚀 Iniciando procesamiento de pago...');
+            const result = await this.processPayment();
+            
+            console.log('✅ Pago procesado exitosamente:', result);
             
             // Limpiar carrito
             localStorage.removeItem('carrito');
+            console.log('🧹 Carrito limpiado');
             
             // Mostrar modal de éxito
             const modal = new bootstrap.Modal(document.getElementById('confirmacionModal'));
             modal.show();
+            console.log('🎉 Modal de confirmación mostrado');
 
             // Enviar notificación por email (opcional)
             await this.sendOrderConfirmation();
 
         } catch (error) {
-            this.showNotification('Error al procesar el pago. Intente nuevamente.', 'error');
+            console.error('❌ Error en handleSubmit:', error);
+            console.error('❌ Detalles del error:', error.message);
+            this.showNotification(`Error al procesar el pago: ${error.message}`, 'error');
         } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
+            console.log('🔄 Botón restaurado');
         }
     }
 
@@ -350,6 +358,8 @@ class CheckoutSystem {
             discount: this.discount
         };
 
+        console.log('📤 Enviando datos de orden:', orderData);
+
         // Enviar orden al servidor
         const response = await fetch('/procesar-orden', {
             method: 'POST',
@@ -359,12 +369,17 @@ class CheckoutSystem {
             body: JSON.stringify(orderData)
         });
 
+        console.log('📡 Respuesta del servidor (status):', response.status);
+
         const result = await response.json();
+        console.log('📡 Respuesta del servidor (data):', result);
         
         if (!result.success) {
+            console.error('❌ Error en el procesamiento:', result.error);
             throw new Error(result.error || 'Error al procesar la orden');
         }
 
+        console.log('✅ Orden procesada exitosamente:', result.orderNumber);
         return result;
     }
 
